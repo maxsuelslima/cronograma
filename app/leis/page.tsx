@@ -1,10 +1,10 @@
-import { converterTextoParaObjeto } from "../utils";
-import rawTexto from "./1/constant";
+/* import { converterTextoParaObjeto } from "../utils";
+import rawTexto from "./1/constant"; */
 
 export default function Leis() {
     return (
         <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-            <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+            <div className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
 ESTADO DE ALAGOAS 
 GABINETE DO GOVERNADOR 
 LEI Nº 5.346, DE 26 DE MAIO DE 1992. 
@@ -1832,7 +1832,7 @@ Governador
 NILTON ROCHA - CEL PM  
 Comandante Geral 
 Este texto não substitui o publicado no DOE do dia 27.05.1992. 
-            </main>
+            </div>
         </div>
     );
 }

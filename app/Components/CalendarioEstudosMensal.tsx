@@ -1,22 +1,22 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { FC, Ref, useEffect, useState } from "react";
 import Pager from "./Pager";
 
 type CalendarioEstudosMensalProps = {
-  cronograma: {
+  cronograma?: {
     [ano: string]: {
       [mes: string]: {
         [dia: string]: string[];
       };
     };
   };
-  mesSelecionado: string;
-  anoSelecionado: string;
-  ref: {
+  mesSelecionado?: string;
+  anoSelecionado?: string;
+  ref: Ref<{
     setMesSelecionado: (mes: string) => void;
     setAnoSelecionado: (ano: string) => void;
-  };
-};
+  }>;
+}
 
 const CalendarioEstudosMensalDisplay: FC<CalendarioEstudosMensalProps> = ({
   cronograma = {},
@@ -34,12 +34,16 @@ const arrayDias: Array<{ ano: string; mes: string; dia: string }> =
     parseInt(mesSelecionadoState) - 1,
   ).toLocaleString("pt-BR", { month: "long" });
   useEffect(() => {
-    ref.setMesSelecionado = (mes: string) => {
-      setMesSelecionadoState(mes);
+    if (ref && typeof ref === "object" && "current" in ref) {
+      ref.current = {
+      setMesSelecionado: (mes: string) => {
+        setMesSelecionadoState(mes);
+      },
+      setAnoSelecionado: (ano: string) => {
+        setAnoSelecionadoState(ano);
+      }
     };
-    ref.setAnoSelecionado = (ano: string) => {
-      setAnoSelecionadoState(ano);
-    };
+    }
   }, [mesSelecionado, anoSelecionado, setMesSelecionadoState, setAnoSelecionadoState, ref]);
 
   return (

@@ -18,15 +18,25 @@ console.log('Atualizando tópicos estudados para o usuário:', process.env, topi
 
   const [topicosEstudadosState, setTopicosEstudadosState] = useState<TopicosEstudados[]>(topicosEstudados);
   const calendarioEstudosMensalRef = useRef<{
-    setMesSelecionado: (mes: string) => void
-    setAnoSelecionado: (ano: string) => void
-    setTopicosMes: (topicos: string[]) => void
-  }>(null);
+    setMesSelecionado: (mes: string) => void;
+    setAnoSelecionado: (ano: string) => void;
+  }>(
+    {
+        setMesSelecionado: () => {},
+        setAnoSelecionado: () => {}
+    }
+  );
   const calendarioEstudosSemanalRef = useRef<{
-    setSemanaSelecionada: (semana: string) => void
-    setAnoSelecionado: (ano: string) => void
-    setTopicosSemana: (topicos: string[]) => void
-  }>(null);
+        setMesSelecionado: (mes: string) => void;
+        setAnoSelecionado: (ano: string) => void;
+        setSemanaSelecionada: (semana: string) => void;
+  }>(
+    {
+        setSemanaSelecionada: () => {},
+        setAnoSelecionado: () => {},
+        setMesSelecionado: () => {}
+    }
+  );
   const progresso = calcularProgressoEstudo(disciplinas, [
     ...topicosEstudadosState
   ]);

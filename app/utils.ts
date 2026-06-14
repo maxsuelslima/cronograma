@@ -18,13 +18,13 @@ type TextoLei = {
         }
     };
 }
-
+/* 
 function converterTextoParaObjeto(textoBruto:string): TextoLei {
 
-}
+} */
 // O título começar com "TÍTULO" seguido de um número romano e o nome do título em letras maiúsculas
 // E acaba no próximo título ou no final do texto
-function extrairTitulosTextoBruto(textoBruto:string): string[] {
+/* function extrairTitulosTextoBruto(textoBruto:string): string[] {
     const regexTitulo = /TÍTULO\s+([IVXLCDM]+)\s+([A-Z\s]+)/g;
     const titulos = [];
     let match;
@@ -47,7 +47,7 @@ function extrairArtigosDoCapitulo(capitulo:string): {artigo: string, texto: stri
 function gerarCronogramaEstudo(conhecimentos: Conhecimentos, pesoConhecimento: { [key: string]: '0' | '1' | '2' | '3' }): Array<string> {
     //gera um cronograma de estudo baseado nos conhecimentos e seus pesos
     // 
-}
+} */
 export function calcularProgressoEstudo(conhecimentos: Conhecimentos, topicosEstudados: TopicosEstudados[]): {
         gerais:{
             [disciplina: string]: {
@@ -155,4 +155,4 @@ export async function atualizarTopicosEstudados(idUsuario: string, topicosEstuda
         throw new Error('Erro ao atualizar os tópicos estudados');
     }
 }
-export { converterTextoParaObjeto };
+/* export { converterTextoParaObjeto }; */

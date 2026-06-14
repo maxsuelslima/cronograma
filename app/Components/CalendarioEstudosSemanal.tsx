@@ -3,16 +3,16 @@ import {  FC, Ref, useEffect, useState } from "react";
 import Pager from "./Pager";
 
 type CalendarioEstudosSemanalProps = {
-    cronograma: {
+    cronograma?: {
         [ano: string]: {
             [mes: string]: {
                 [dia: string]: string[];
             }
         }
     }
-    mesSelecionado: string;
-    anoSelecionado: string;
-    semanaSelecionada: string;
+    mesSelecionado?: string;
+    anoSelecionado?: string;
+    semanaSelecionada?: string;
     ref: Ref<{
         setMesSelecionado: (mes: string) => void;
         setAnoSelecionado: (ano: string) => void;
@@ -99,7 +99,7 @@ const CalendarioEstudosSemanalDisplay: FC<CalendarioEstudosSemanalProps> = (({ c
                 </div>
             ))}
             {arrayDias.map((item, index) => {
-                const topicos = cronograma[item.ano]?.[item.mes]?.[item.dia] ?? [];
+                const topicos = cronograma[item.ano as keyof typeof cronograma]?.[item.mes]?.[item.dia] ?? [];
                 const isSemanaAtual = item.mes === mesSelecionadoState && item.ano === anoSelecionadoState;
                 return (
                     <div key={index} className={`p-2 border rounded ${isSemanaAtual ? "bg-white" : "bg-gray-100 text-gray-400"}`}>
